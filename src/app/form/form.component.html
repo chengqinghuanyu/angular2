@@ -1,0 +1,54 @@
+<h3>添加联系人</h3>
+<form>
+	<ul>
+		<li>
+			<label for="name">姓名：</label>
+			<input type="text" name="name">
+		</li>
+		<li>
+			<label for="sex">性别：</label>
+			<input type="radio" name="sex" [(ngModel)]="curContact.sex" value="male">男
+			<label>&nbsp;&nbsp;&nbsp;&nbsp;</label>
+			<input type="radio" name="sex" [(ngModel)]="curContact.sex" value="female">女
+		</li>
+		<li>
+			<label for="tel">电话：</label>
+			<input type="text" name="tel">
+		</li>
+		<li>
+			<label for="address">住址：</label>
+			<input type="text" name="address">
+		</li>
+		<li>
+			<label for="yb">邮编：</label>
+			<input type="text" name="yb">
+		</li>
+		<li>
+			<label for="birth">生日：</label>
+			<input type="text" name="birth">
+		</li>
+		<li>
+			<label for="birth">业余爱好1：</label>
+			<select name="interesValue" [(ngModel)]="curContact.interesValue">
+				<option *ngFor="let interest of interests" [value]="interest.value ? curContact.interesValue:interest.value">{{interest.display}}</option>
+			</select>
+		</li>
+
+		<li>
+			<label for="birth">业余爱好2：</label>
+			<select name="interesObj" [(ngModel)]="curContact.interesObj">
+				<option *ngFor="let interest of interests" [value]="interest">{{interest.display}}</option>
+			</select>
+		</li>
+
+		<li>
+			<label for="birth">业余爱好3：</label>
+			<select multiple name="interesMul" [(ngModel)]="curContact.interesMul">
+				<option   *ngFor="let interest of interests" [value]="interest.valule">{{interest.display}}</option>
+			</select>
+		</li>  
+
+		<li> <label>选择：</label><input type="checkbox" name="clock" [(ngModel)]="curContact.lock">禁用</li>
+		<li><button type="submit">添加</button><button type="button">取消</button></li>
+	</ul>
+</form>

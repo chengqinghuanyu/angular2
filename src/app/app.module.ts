@@ -28,6 +28,7 @@ import { TopnavComponent } from './topnav/topnav.component';
 import { FooterComponent } from './footer/footer.component';
 import { DetailComponent } from './detail/detail.component';
 import { ConnactComponent } from './connact/connact.component';
+import { FormComponent } from './form/form.component';
 
 let rootRouterModule:ModuleWithProviders = RouterModule.forRoot(rootRouterConfig);
 @NgModule({
@@ -50,7 +51,8 @@ let rootRouterModule:ModuleWithProviders = RouterModule.forRoot(rootRouterConfig
     TopnavComponent,
     FooterComponent,
     DetailComponent,
-    ConnactComponent
+    ConnactComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,

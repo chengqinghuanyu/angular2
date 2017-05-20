@@ -1,5 +1,62 @@
 <p>
   detail works!
 </p>
-
 <p>15+11111={{15+11111}}</p>
+<input (click)="goDetail($event)" value="你点了我{{num}}下"> 
+
+<div>电话{{detial.telNum}}</div>
+{{title}}
+
+<div [title]="detial.title">标题{{detial.title}}</div>
+
+<div [style]="detial.style">[style]===={{detial.style}}属性绑定</div>
+
+<table>
+	
+	<tr ><td>ff</td></tr>
+</table>
+<div class="font14">14色字</div>
+<div class="red font14" [class]="changeGreen">14绿色字</div>
+
+<div class="footer" [class.footer]="showFooter">ffff</div>
+
+<button [style.background-color]="canClick ? 'blue' : 'green'">
+	
+	若canClick为true，按钮为蓝色，
+</button>
+
+<button [style.font-size.px]="isLarge?18:13">good</button>
+
+
+<input type="" name="" [(ngModel)]="currentUser.phoneNumber"  >
+<div>{{currentUser.phoneNumber}}</div>
+
+
+<input type="text" name="" [ngModel]="currentUser.phoneNumber" (ngModelChange)="addCodeForPhoneNumber($event)">
+
+
+
+<div [ngClass]="setClass()">红色标题</div>
+
+<div [ngStyle]="setStyle()">红色16px加粗文字</div>
+
+<div *ngIf="collect.length===0" class="no-collection">未收藏</div>
+
+
+<div [ngSwitch]="contactName">
+	
+	<div *ngSwitchCase="'TimCook'">蒂姆·库克</div>
+
+	<div *ngSwitchCase="'BillGates'">比尔盖茨</div>
+
+	<div *ngSwitchDefault>无名氏</div>
+</div>
+<div>联系人列表：</div>
+<ul *ngFor="let contectnew of contctnews ;let i=index">
+	<li (click)="connetIt(i)">{{contectnew.name}}</li>
+</ul>
+
+
+
+
+

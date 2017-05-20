@@ -6,6 +6,7 @@ import { TopnavComponent } from "./topnav/topnav.component";
 import { FooterComponent } from "./footer/footer.component";
 import { DetailComponent } from "./detail/detail.component";
 import { ConnactComponent } from "./connact/connact.component";
+import { FormComponent } from "./form/form.component";
 export const rootRouterConfig: Routes = [
 {
 	path:"index",
@@ -33,6 +34,10 @@ export const rootRouterConfig: Routes = [
 {
 	path:"connact",
 	component:ConnactComponent,
+},
+{
+	path:"form",
+	component:FormComponent,
 },
 {
 	path: "",
