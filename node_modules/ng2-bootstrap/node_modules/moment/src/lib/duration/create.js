@@ -1,5 +1,4 @@
 import { Duration, isDuration } from './constructor';
-import isNumber from '../utils/is-number';
 import toInt from '../utils/to-int';
 import absRound from '../utils/abs-round';
 import hasOwnProp from '../utils/has-own-prop';
@@ -29,7 +28,7 @@ export function createDuration (input, key) {
             d  : input._days,
             M  : input._months
         };
-    } else if (isNumber(input)) {
+    } else if (typeof input === 'number') {
         duration = {};
         if (key) {
             duration[key] = input;

@@ -1,7 +1,7 @@
 define( [
 	"./core",
 	"./var/document",
-	"./var/rnothtmlwhite",
+	"./var/rnotwhite",
 	"./ajax/var/location",
 	"./ajax/var/nonce",
 	"./ajax/var/rquery",
@@ -11,14 +11,14 @@ define( [
 	"./event/trigger",
 	"./deferred",
 	"./serialize" // jQuery.param
-], function( jQuery, document, rnothtmlwhite, location, nonce, rquery ) {
+], function( jQuery, document, rnotwhite, location, nonce, rquery ) {
 
 "use strict";
 
 var
 	r20 = /%20/g,
 	rhash = /#.*$/,
-	rantiCache = /([?&])_=[^&]*/,
+	rts = /([?&])_=[^&]*/,
 	rheaders = /^(.*?):[ \t]*([^\r\n]*)$/mg,
 
 	// #7653, #8125, #8152: local protocol detection
@@ -64,7 +64,7 @@ function addToPrefiltersOrTransports( structure ) {
 
 		var dataType,
 			i = 0,
-			dataTypes = dataTypeExpression.toLowerCase().match( rnothtmlwhite ) || [];
+			dataTypes = dataTypeExpression.toLowerCase().match( rnotwhite ) || [];
 
 		if ( jQuery.isFunction( func ) ) {
 
@@ -306,7 +306,6 @@ jQuery.extend( {
 		processData: true,
 		async: true,
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-
 		/*
 		timeout: 0,
 		data: null,
@@ -532,7 +531,7 @@ jQuery.extend( {
 		s.type = options.method || options.type || s.method || s.type;
 
 		// Extract dataTypes list
-		s.dataTypes = ( s.dataType || "*" ).toLowerCase().match( rnothtmlwhite ) || [ "" ];
+		s.dataTypes = ( s.dataType || "*" ).toLowerCase().match( rnotwhite ) || [ "" ];
 
 		// A cross-domain request is in order when the origin doesn't match the current origin.
 		if ( s.crossDomain == null ) {
@@ -604,9 +603,9 @@ jQuery.extend( {
 				delete s.data;
 			}
 
-			// Add or update anti-cache param if needed
+			// Add anti-cache in uncached url if needed
 			if ( s.cache === false ) {
-				cacheURL = cacheURL.replace( rantiCache, "$1" );
+				cacheURL = cacheURL.replace( rts, "" );
 				uncached = ( rquery.test( cacheURL ) ? "&" : "?" ) + "_=" + ( nonce++ ) + uncached;
 			}
 

@@ -9,7 +9,6 @@ import { hooks } from '../utils/hooks';
 import { MONTH } from './constants';
 import toInt from '../utils/to-int';
 import isArray from '../utils/is-array';
-import isNumber from '../utils/is-number';
 import indexOf from '../utils/index-of';
 import { createUTC } from '../create/utc';
 import getParsingFlags from '../create/parsing-flags';
@@ -67,7 +66,7 @@ addParseToken(['MMM', 'MMMM'], function (input, array, config, token) {
 
 // LOCALES
 
-var MONTHS_IN_FORMAT = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/;
+var MONTHS_IN_FORMAT = /D[oD]?(\[[^\[\]]*\]|\s+)+MMMM?/;
 export var defaultLocaleMonths = 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_');
 export function localeMonths (m, format) {
     if (!m) {
@@ -181,7 +180,7 @@ export function setMonth (mom, value) {
         } else {
             value = mom.localeData().monthsParse(value);
             // TODO: Another silent failure?
-            if (!isNumber(value)) {
+            if (typeof value !== 'number') {
                 return mom;
             }
         }
