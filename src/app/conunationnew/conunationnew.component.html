@@ -1,0 +1,27 @@
+<p>
+  conunationnew works! <button (click)="onClickMe()">点我!</button>
+    {{clickMessage}}
+</p>
+<div>
+	 <input (keyup)="onKey($event)">
+    <p>{{values}}</p>
+</div>
+<ul>
+	<li *ngFor="let name of names">{{name}}</li>
+</ul>
+<ul class="list-group" *ngFor="let item of list">
+  <li class="list-group-item">{{item.name}}</li>
+</ul>
+
+<ul>
+	<li *ngFor="let list of listNew">{{list.name}}----{{list.age}}---{{list.hometoung}}</li>
+</ul>
+
+<ul *ngFor="let list of listNew">
+	<li *ngIf="list.name=='李阳'" class="list-group-item">哇,我在list列表中找到了 <span class="label label-info">{{list.name}}</span></li>
+</ul>
+
+
+<ul *ngFor="let list of listNew">
+	<li *ngIf="list.name!='张明'" class="list-group-item">哇，我找到了，<span class="label label-info">{{list.name}}</span></li>
+</ul>

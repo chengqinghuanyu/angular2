@@ -1,0 +1,234 @@
+<div>
+	<button type="button" class="btn btn-primary" (click)="staticModal.show()">Static modal</button>
+ 
+<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Static modal</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        This is static modal, backdrop click will not close it.
+        Click <b>&times;</b> to close modal.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<style>
+  .alert-md-color {
+    background-color: #7B1FA2;
+    border-color: #4A148C;
+    color: #fff;
+  }
+</style>
+
+<accordion>
+  <accordion-group heading="Static Header, initially expanded">
+    This content is straight in the template.
+  </accordion-group>
+  <accordion-group #group>
+    <div accordion-heading>
+      I can have markup, too!
+      <i class="pull-right float-xs-right glyphicon"
+         [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}"></i>
+    </div>
+    This is just some content to illustrate fancy headings.
+  </accordion-group>
+  <accordion-group heading="Content 1">
+    <p>Content 1</p>
+  </accordion-group>
+  <accordion-group heading="Content 2">
+    <p>Content 2</p>
+  </accordion-group>
+</accordion>
+
+<p>
+  <button type="button" class="btn btn-primary btn-sm" (click)="status.isFirstDisabled = ! status.isFirstDisabled">
+    Enable / Disable first panel
+  </button>
+</p>
+ 
+<accordion>
+  <accordion-group heading="Static Header, initially expanded"
+                   [isOpen]="status.isFirstOpen"
+                   [isDisabled]="status.isFirstDisabled">
+    This content is straight in the template.
+  </accordion-group>
+  <accordion-group heading="Content 1">
+    <p>accordion 1</p>
+  </accordion-group>
+  <accordion-group heading="Content 2">
+    <p>accordion 2</p>
+  </accordion-group>
+</accordion>
+
+
+
+
+<p>
+  <button type="button" class="btn btn-primary btn-sm"
+          (click)="group.isOpen = !group.isOpen">Toggle last panel
+  </button>
+</p>
+ 
+<accordion>
+  <accordion-group heading="Static Header, initially expanded"
+                   [isOpen]="status.isFirstOpen">
+    This content is straight in the template.
+  </accordion-group>
+  <accordion-group *ngFor="let group of groups" [heading]="group.title">
+    {{ group?.content }}
+  </accordion-group>
+  <accordion-group heading="Dynamic Body Content">
+    <p>The body of the accordion group grows to fit the contents</p>
+    <button type="button" class="btn btn-primary btn-sm" (click)="addItem()">Add
+      Item
+    </button>
+    <div *ngFor="let item of items">{{item}}</div>
+  </accordion-group>
+  <accordion-group #group [isOpen]="status.isOpen">
+    <div accordion-heading>
+      I can have markup, too!
+      <i class="pull-right float-xs-right glyphicon"
+         [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}"></i>
+    </div>
+    This is just some content to illustrate fancy headings.
+  </accordion-group>
+</accordion>
+
+
+<alert type="success">
+  <h4 class="alert-heading">Well done!</h4>
+  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+</alert>
+
+
+<div *ngFor="let alert of alerts">
+  <alert [type]="alert.type" dismissible="true">{{ alert.msg }}</alert>
+</div>
+<button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+
+
+<div class="btn-group">
+  <label class="btn btn-primary" [(ngModel)]="checkModel.left"
+         btnCheckbox>Left</label>
+  <label class="btn btn-primary" [(ngModel)]="checkModel.middle" btnCheckbox>Middle</label>
+  <label class="btn btn-primary" [(ngModel)]="checkModel.right" btnCheckbox>Right</label>
+</div>
+
+
+<carousel>
+  <slide>
+    <img src="assets/images/nature/1.jpg" alt="First slide">
+  </slide>
+  <slide>
+    <img src="assets/images/nature/2.jpg" alt="Second slide">
+  </slide>
+  <slide>
+    <img src="assets/images/nature/3.jpg" alt="Third slide">
+  </slide>
+</carousel>
+
+<style>
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+</style>
+ 
+<div>
+  <div class="card">
+    <pre class="card-block card-header">Selected date is: <em *ngIf="dt">{{ getDate() | date:'fullDate'}}</em></pre>
+  </div>
+  <h4>Inline</h4>
+  <div style="display:inline-block; min-height:290px;">
+    <datepicker [(ngModel)]="dt" [minDate]="minDate" [showWeeks]="true" [dateDisabled]="dateDisabled"></datepicker>
+  </div>
+ 
+  <hr />
+  <button type="button" class="btn btn-sm btn-info" (click)="today()">Today</button>
+  <!-- <button type="button" class="btn btn-sm btn-default btn-secondary" (click)="d20090824();">2009-08-24</button> -->
+  <button type="button" class="btn btn-sm btn-danger" (click)="clear()">Clear</button>
+  <button type="button" class="btn btn-sm btn-default btn-secondary" (click)="toggleMin()" tooltip="After today restriction">Min date</button>
+  <button type="button" class="btn btn-sm btn-default btn-secondary" (click)="disableTomorrow()">Disable Tomorrow</button>
+</div>
+
+
+
+<pagination [boundaryLinks]="true" [totalItems]="totalItems" [(ngModel)]="currentPage" class="pagination-sm"
+            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+
+
+
+
+<button type="button" class="btn btn-default btn-secondary"
+        popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        popoverTitle="Popover on left"
+        placement="left">
+  Popover on left
+</button>
+ 
+<button type="button" class="btn btn-default btn-secondary"
+        popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        popoverTitle="Popover on top"
+        placement="top">
+  Popover on top
+</button>
+ 
+<button type="button" class="btn btn-default btn-secondary"
+        popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        popoverTitle="Popover on bottom"
+        placement="bottom">
+  Popover on bottom
+</button>
+ 
+<button type="button" class="btn btn-default btn-secondary"
+        popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        popoverTitle="Popover on right"
+        placement="right">
+  Popover on right
+</button>
+
+<div class="row">
+  <div class="col-sm-4">
+    <progressbar value="55"></progressbar>
+  </div>
+  <div class="col-sm-4">
+    <progressbar class="progress-striped" value="22" type="warning">22%</progressbar>
+  </div>
+  <div class="col-sm-4">
+    <progressbar class="progress-striped active" max="200" value="166" type="danger"><i>166 / 200</i></progressbar>
+  </div>
+</div>
+
+<rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly"></rating>
+<div class="card">
+    <pre class="card-block card-header" style="margin:15px 0;">Rate: <b>{{rate}}</b> </pre>
+</div>
+
+<button type="button" class="btn btn-primary"
+        tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Simple demo
+</button>
+
+
+<button type="button" class="btn btn-success"
+        tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        triggers="focus">
+  Dismissible tooltip
+</button>
+

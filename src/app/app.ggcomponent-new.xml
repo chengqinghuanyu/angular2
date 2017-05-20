@@ -1,0 +1,59 @@
+<h1>
+  <p>My name is: {{username}}</p>
+    <p>My age is: {{age}}</p>
+    <ul>
+      <li *ngFor="let fruit of fruitsList">{{fruit}}</li>
+    </ul>
+    <p>My favorite fruit is: {{fruit}}</p>
+    <p>My-bj name is: {{name? "1" :"0"}}</p>
+    <p> my-datas is {{numberlarge}}</p>
+    <p>静态数据类型{{pois}}</p>
+    <p>函数返回值：{{greencolor}}</p>
+    <p>输出数组：{{deer}}</p>
+    <p>输出数组new{{nag}}</p>
+</h1>
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-lg btn-default">Default</button>
+
+<div class="container-fluid">
+    <hr>
+    <p>
+        This is a demo plnkr forked from the <strong>ng-bootstrap</strong> project: Angular 2 powered Bootstrap.
+        Visit <a href="https://ng-bootstrap.github.io/" target="_blank">https://ng-bootstrap.github.io</a> for more widgets and demos.
+    </p>
+    <hr>
+    <app-carousel></app-carousel>
+    <app-datepicker></app-datepicker>
+    <app-accordion></app-accordion>
+    <app-alerts>你好你好</app-alerts>
+    <div>
+      <app-button></app-button> 
+    </div>
+    <div>
+        <app-dorpdowns></app-dorpdowns>
+    </div>
+    <div>
+        
+        <app-charts></app-charts>
+    </div>
+    <div>
+        
+        <app-conmunacationnew></app-conmunacationnew>
+    </div>
+    <app-conunationnew></app-conunationnew>
+
+</div>

@@ -1,0 +1,23 @@
+<!-- <carousel>
+  <slide>
+    <img src="assets/images/nature/1.jpg" alt="First slide">
+  </slide>
+  <slide>
+    <img src="assets/images/nature/2.jpg" alt="Second slide">
+  </slide>
+  <slide>
+    <img src="assets/images/nature/3.jpg" alt="Third slide">
+  </slide>
+</carousel> -->
+
+<carousel>
+  <slide *ngFor="let slider of sliders ">
+    <img src="{{slider.src}}" alt="{{slider.alt}}">
+    <div class="carousel-caption">
+      <h3>{{slider.title}}</h3>
+      <p>{{slider.detail}} {{contact.name}}</p>
+      <i [ngClass]="{collected:contact.collection}" (click)="collectTheContact()">ffffff</i>
+    </div>
+  </slide>
+</carousel>
+

@@ -1,8 +1,5 @@
-import { Component,OnInit} from '@angular/core';
-
-
-
-
+import { Component,OnInit,
+} from '@angular/core';
 const CAL_LIVES_NUM =9;
 const lity = {
 		name:"alice",
@@ -13,9 +10,11 @@ declare var $:any;
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
+    
 })
 
 export class AppComponent {
+
   username: string;
   age: number;
   fruit: string;
@@ -62,4 +61,5 @@ export class AppComponent {
   
   
 }
+
 
