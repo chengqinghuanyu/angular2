@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,ModuleWithProviders} from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AlertModule,AccordionModule,ButtonsModule,CarouselModule,DatepickerModule,ModalModule,PaginationModule,ProgressbarModule,RatingModule,TabsModule,TooltipModule} from 'ng2-bootstrap';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -29,6 +30,8 @@ import { FooterComponent } from './footer/footer.component';
 import { DetailComponent } from './detail/detail.component';
 import { ConnactComponent } from './connact/connact.component';
 import { FormComponent } from './form/form.component';
+import { SetbgDirective } from './setbg.directive';
+import { StructureDirective } from './structure.directive';
 
 let rootRouterModule:ModuleWithProviders = RouterModule.forRoot(rootRouterConfig);
 @NgModule({
@@ -52,11 +55,14 @@ let rootRouterModule:ModuleWithProviders = RouterModule.forRoot(rootRouterConfig
     FooterComponent,
     DetailComponent,
     ConnactComponent,
-    FormComponent
+    FormComponent,
+    SetbgDirective,
+    StructureDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AlertModule,
     AccordionModule,

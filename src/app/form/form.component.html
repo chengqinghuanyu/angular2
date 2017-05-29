@@ -1,5 +1,5 @@
 <h3>添加联系人</h3>
-<form>
+<form #contectForm="ngForm">
 	<ul>
 		<li>
 			<label for="name">姓名：</label>
@@ -49,6 +49,47 @@
 		</li>  
 
 		<li> <label>选择：</label><input type="checkbox" name="clock" [(ngModel)]="curContact.lock">禁用</li>
+
+		<li> <label>入手：</label><input type="text"  name="contectName" id="contectName" [(ngModel)]="curContact.name" #contectName="ngModel"></li>
+		<li>{{contectName.valid}}</li>
+		<li>{{contectName.dirty}}</li>
+		<li>{{contectName.pristine}}</li>
+		<li>{{contectName.touched}}</li>
+		<li>{{contectName.untouched}}</li>
+
 		<li><button type="submit">添加</button><button type="button">取消</button></li>
 	</ul>
+</form>
+
+
+<form #contactForm="ngForm">
+	<fieldset ngModelGroup="nameGroup" #nameGroup="ngModelGroup">
+		<label>姓：</label>
+		<input type="text" name="firstname" [(ngModel)]="curContact.firstname" required>
+		<label>名字：</label>
+		<input type="text" name="lasttname" [(ngModel)]="curContact.lastname" required>
+	</fieldset>
+	<fieldset ngModelGroup="addressGroup" #addressGroup="ngModelGroup">
+		<label> 街：</label>
+		<input type="text" name="street" [(ngModel)]="curContact.street" reduired>
+		<label> 区：</label>
+		<input type="text" name="zip" [(ngModel)]="curContact.zip" reduired>
+		<label> 城市：</label>
+		<input type="text" name="city" [(ngModel)]="curContact.city" reduired>
+	</fieldset>
+
+
+</form>
+
+<form>
+	<p>绑定的标签:<input type="text" name="" [formControl]="loginControl"></p>
+	<p>获得input的值{{loginControl.value}}</p>
+</form>
+
+<form [formGroup]="loginForm">
+	<p>用户名：<input type="text" name="" formControlName="name"></p>
+	<p>密码：<input type="password" name="" formControlName="password"></p>
+	<p>LoginForm的值</p>
+	<pre>{{loginForm.value|json}}</pre>
+	
 </form>

@@ -11,6 +11,21 @@
             {{status}}
         </div>
     </div>
+
+    <!-- <div appSetbg>这是个按钮 </div>
+    <div [appSetbg]="color">这是个按钮 </div> -->
+    <!-- <div>
+        <input type="radio" name="colors" (click)="color='green'">
+
+        <input type="radio" name="colors" (click)="color='yellow'">
+
+        <input type="radio" name="colors" (click)="color='red'">
+    </div>
+    <div [appSetbg]="color">这是个按钮</div> -->
+
+    <div [appSetbg]="'red'">这是个按钮</div>
+    <div *appStructure="boolValue">false</div>
+    <div *appStructure="!boolValue">true</div>
    
 </div> 
 

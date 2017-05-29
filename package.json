@@ -29,6 +29,7 @@
     "ng2-modal": "^2.0.1",
     "ng2-pagination": "^2.0.1",
     "ng2-popover": "^2.0.1",
+    "ng2-validation": "^4.2.0",
     "rxjs": "^5.0.1",
     "tether": "^1.4.0",
     "ts-helpers": "^1.1.1",

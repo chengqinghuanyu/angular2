@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl,FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-form',
@@ -6,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-
-  constructor() { }
+  loginControl:FormControl=new FormControl("");
+  loginForm:FormGroup;
+  constructor() { 
+  	this.loginForm =new FormGroup({
+  		name:new FormControl(""),
+  		password:new FormControl("")
+  		})
+  }
 
   ngOnInit() {
   }
@@ -32,5 +40,7 @@ export class FormComponent implements OnInit {
   		display:'运动',
   	},
   ]
+
+  
 
 }

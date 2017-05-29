@@ -4,6 +4,7 @@ import { Component, OnInit, Output ,
   style,
   transition,
   animate,ViewEncapsulation} from '@angular/core';
+import { BrowserService} from '../browser.service';//使用服务查找浏览器类型
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -38,6 +39,7 @@ import { Component, OnInit, Output ,
 
   ])
     ],
+  providers:[BrowserService]
   //encapsulation:ViewEncapsulation.Native
   //encapsulation:ViewEncapsulation.Emulated
 })
@@ -55,9 +57,15 @@ export class HomeComponent implements OnInit {
     collectTheContact(){
     	this.detail.collection == 0?this.detail.collection =1:this.detail.collection=0;
     }
-  constructor() { }
+  constructor(private _browserService:BrowserService) { 
+    console.log(this.browserIs());
+    //return this.browserIs();
+  }
   ngOnInit() {
 
+  }
+  public browserIs():any{
+    return this._browserService.browserIs()
   }
 
 }
