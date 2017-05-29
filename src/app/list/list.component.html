@@ -3,3 +3,6 @@
       <a [routerLink]="['/detail',1]" routerLinkActive="active" class="nav-link">detail</a>
       </li>
 </ul>
+<app-editor (froala)="froalaContent($event)"></app-editor>
+
+<button>提交</button>

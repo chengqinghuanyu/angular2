@@ -33,6 +33,10 @@ import { FormComponent } from './form/form.component';
 import { SetbgDirective } from './setbg.directive';
 import { StructureDirective } from './structure.directive';
 
+/*编辑器组件 */
+import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
+import { EditorComponent } from './editor/editor.component'
+
 let rootRouterModule:ModuleWithProviders = RouterModule.forRoot(rootRouterConfig);
 @NgModule({
   declarations: [
@@ -57,7 +61,8 @@ let rootRouterModule:ModuleWithProviders = RouterModule.forRoot(rootRouterConfig
     ConnactComponent,
     FormComponent,
     SetbgDirective,
-    StructureDirective
+    StructureDirective,
+    EditorComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +80,9 @@ let rootRouterModule:ModuleWithProviders = RouterModule.forRoot(rootRouterConfig
     RatingModule,
     TabsModule,
     ChartsModule,
-    rootRouterModule
+    rootRouterModule,
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,6 +7,7 @@ import { FooterComponent } from "./footer/footer.component";
 import { DetailComponent } from "./detail/detail.component";
 import { ConnactComponent } from "./connact/connact.component";
 import { FormComponent } from "./form/form.component";
+import { EditorComponent } from "./editor/editor.component";
 export const rootRouterConfig: Routes = [
 {
 	path:"index",
@@ -38,6 +39,10 @@ export const rootRouterConfig: Routes = [
 {
 	path:"form",
 	component:FormComponent,
+},
+{
+	path:"editor",
+	component:EditorComponent,
 },
 {
 	path: "",

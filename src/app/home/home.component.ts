@@ -68,5 +68,7 @@ export class HomeComponent implements OnInit {
     return this._browserService.browserIs()
   }
 
+
+
 }
 

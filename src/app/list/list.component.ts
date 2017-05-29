@@ -17,4 +17,8 @@ export class ListComponent implements OnInit {
   ngOnInit() {
   }
 
+  froalaContent(event) {
+    console.log(event)
+  }
+
 }

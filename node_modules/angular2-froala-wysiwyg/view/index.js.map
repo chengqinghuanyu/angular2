@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/view/index.ts"],"names":[],"mappings":"AAAA,SAAS,mBAAmB,QAAQ,kBAAkB,CAAC;AACvD,SAAS,gBAAgB,QAAQ,eAAe,CAAC","sourcesContent":["export { FroalaViewDirective } from './view.directive';\nexport { FroalaViewModule } from './view.module';\ninterface DecoratorInvocation {\n  type: Function;\n  args?: any[];\n}\n"]}
